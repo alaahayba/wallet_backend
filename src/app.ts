@@ -1,6 +1,7 @@
 import express from 'express';
+const cors = require('cors')
 import routes from './routes';
-import { validateUser ,validateAdmin,unhandeledCrashes} from './middlewares';
+import { validateUser ,validateAdmin,unhandeledCrashes,enableCors} from './middlewares';
 const morgan = require('morgan');
 
 class App {
@@ -16,10 +17,11 @@ class App {
   middlewares() {
     this.server.use(morgan('tiny'));
     this.server.use(express.json());
+    this.server.use(cors());
     this.server.use(unhandeledCrashes);
     this.server.use(/^\/user.+$/, validateUser);
     this.server.use(/^\/admin.+$/, validateAdmin);
-
+    //this.server.use(enableCors);
   }
 
   routes() {
