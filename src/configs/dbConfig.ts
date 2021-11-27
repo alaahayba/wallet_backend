@@ -3,11 +3,11 @@ module.exports = {
         name: 'user',
         config: {
             connectionLimit: 5,
-            host: 'localhost',
+            host: process.env.MYSQL_HOST,
             database: 'wallet',
             user: 'root',
-            password: '1234',
-            port: 3306,
+            password: process.env.MYSQL_PASS,
+            port: process.env.MYSQL_PORT ,
             multipleStatements: true
         }
     },
@@ -15,11 +15,11 @@ module.exports = {
         name: 'transactions',
         config: {
             connectionLimit: 5,
-            host: 'localhost',
+            host: process.env.MYSQL_HOST,
             database: 'wallet',
             user: 'root',
-            password: '1234',
-            port: 3306,
+            password: process.env.MYSQL_PASS,
+            port: process.env.MYSQL_PORT ,
             multipleStatements: true,
             supportBigNumbers: true,
             timezone: 'Z',
