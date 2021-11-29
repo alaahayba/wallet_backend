@@ -3,7 +3,6 @@ import { encValidate, generateToken } from "../services";
 import { userModel } from "../models";
 
 async function login(req: Request, res: Response) {
-    console.log(">>>>>>>>>", req.body)
     let { mobile, password } = req.body;
     let userInfo = await userModel.find({ mobile }, []);
     if (!userInfo?.length)
